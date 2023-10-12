@@ -1,2 +1,2 @@
-# unity-onnxruntime-inference-yolox-demo
- A simple Unity project demonstrating how to perform object detection with ONNX Runtime. 
+# Unity ONNX Runtime Inference YOLOX Demo
+A simple Unity project demonstrating how to perform object detection with ONNX Runtime. 
