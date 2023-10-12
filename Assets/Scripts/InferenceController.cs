@@ -148,7 +148,7 @@ public class InferenceController : MonoBehaviour
 
         if (!inputTextureCPU || inputTextureCPU.width != inputTexture.width || inputTextureCPU.height != inputTexture.height)
         {
-            inputTextureCPU = new Texture2D(inputDims.x, inputDims.y, TextureFormat.RGBA32, false);
+            inputTextureCPU = new Texture2D(inputDims.x, inputDims.y, TextureFormat.RGB24, false);
             gridCoordsAndStrides = YOLOXUtility.GenerateGridCoordinatesWithStrides(YOLOXConstants.Strides, inputTexture.height, inputTexture.width);
 
             int output_size = gridCoordsAndStrides.Count * proposalLength;
@@ -163,7 +163,7 @@ public class InferenceController : MonoBehaviour
 
         if (useAsyncGPUReadback)
         {
-            AsyncGPUReadback.Request(inputTexture, 0, TextureFormat.RGBA32, (request) =>
+            AsyncGPUReadback.Request(inputTexture, 0, TextureFormat.RGB24, (request) =>
             {
                 OnCompleteReadback(request, inputTextureCPU, inputTexture);
             });
