@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 public static class ONNXRuntimePlugin
 {
     // Name of the DLL file
-    const string dll = "UnityOnnxYOLOXDetectorPlugin";
+    const string dll = "UnityONNXCVInferencePlugin";
 
     [DllImport(dll)]
     public static extern int InitOrtAPI();
