@@ -307,21 +307,16 @@ public class InferenceController : MonoBehaviour
     private void GetONNXModels()
     {
         // Get the paths for each model folder
-        foreach (string dir in Directory.GetDirectories($"{Application.streamingAssetsPath}/{onnxModelsDir}"))
+        foreach (string file in Directory.GetFiles($"{Application.streamingAssetsPath}/{onnxModelsDir}"))
         {
-            //Debug.Log(dir);
-            // Extract the model folder name
-            string modelName = dir.Split('\\')[1];
-            // Add name to list of model names
-            modelNames.Add(modelName);
-
-            // Get the paths for the ONNX file for each model
-            foreach (string file in Directory.GetFiles(dir))
+            if (file.EndsWith(".onnx"))
             {
-                if (file.EndsWith(".onnx"))
-                {
-                    modelPaths.Add(file);
-                }
+                // Extract the model folder name
+                string modelName = file.Split('\\')[1].Split('.')[0];
+                Debug.Log($"modelName: {modelName}");
+                // Add name to list of model names
+                modelNames.Add(modelName);
+                modelPaths.Add(file);
             }
         }
     }
