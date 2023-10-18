@@ -1446,7 +1446,7 @@ PrefabInstance:
     - target: {fileID: 5412443766274122780, guid: 8cc8733646614054844d399b7bd4aa5d, type: 3}
       propertyPath: 'imageSprites.Array.data[19]'
       value: 
-      objectReference: {fileID: 21300000, guid: 5ef5450c648adc34699241adb1f39813, type: 3}
+      objectReference: {fileID: 21300000, guid: 89e9032c07f9a2441a53865bed8b4283, type: 3}
     - target: {fileID: 5412443766274122780, guid: 8cc8733646614054844d399b7bd4aa5d, type: 3}
       propertyPath: 'imageSprites.Array.data[20]'
       value: 
