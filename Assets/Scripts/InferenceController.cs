@@ -357,23 +357,15 @@ public class InferenceController : MonoBehaviour
             inputTextureCPU.height
         };
 
-        Debug.Log($"Source input dims: {inputDims[0]} x {inputDims[1]}");
-
         // Load the specified ONNX model
-        int return_msg = ONNXRuntimePlugin.LoadModel(
+        IntPtr resultPtr = ONNXRuntimePlugin.LoadModel(
             modelPaths[0],
             onnxExecutionProviders[1],
             inputDims);
 
-        //SetConfidenceThreshold(minConfidence);
+        string return_msg = Marshal.PtrToStringAnsi(resultPtr); // Convert IntPtr to string
 
-        string[] return_messages = {
-        "Using DirectML",
-        "Using CPU",
-    };
-
-        Debug.Log($"Updated input dims: {inputDims[0]} x {inputDims[1]}");
-        Debug.Log($"Return message: {return_messages[return_msg]}");
+        Debug.Log($"Return message: {return_msg}");
     }
 
 
