@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 public static class ONNXRuntimePlugin
 {
     // Name of the DLL file
-    const string dll = "UnityONNXCVInferencePlugin";
+    const string dll = "UnityONNXInferenceCVPlugin";
 
     [DllImport(dll)]
     public static extern int InitOrtAPI();
@@ -19,14 +19,11 @@ public static class ONNXRuntimePlugin
     public static extern IntPtr GetProviderName(int index);
 
     [DllImport(dll)]
-    public static extern void RefreshMemory();
+    public static extern void FreeResources();
 
     [DllImport(dll)]
-    public static extern int LoadModel(string model, string execution_provider, int[] inputDims);
+    public static extern IntPtr LoadModel(string model, string execution_provider, int[] inputDims);
 
     [DllImport(dll)]
     public static extern void PerformInference(byte[] inputData, float[] outputArray, int length);
-
-    [DllImport(dll)]
-    public static extern void FreeResources();
 }
